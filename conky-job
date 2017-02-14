@@ -35,7 +35,9 @@ color1 1abc9c
 TEXT
 # JSON for i3bar
 [
-{"full_text" : "${cpu cpu}% ", "color" : "\#27ae60"},
+{"full_text" : "read: ${diskio_read} ", "color" : "\#27ae60"},
+{"full_text" : "write: ${diskio_write} ", "color" : "\#27ae60"},
+{"full_text" : "cpu: ${cpu cpu}% ", "color" : "\#27ae60"},
 {"full_text" : "${mem}($memperc%) ", "color" : "\#27ae60"},
 {"full_text" : "${swap}", "color" : "\#8e44ad"},
 {"full_text" : "♬ ${exec amixer get Master -M | egrep -o '[0-9]{2,3}%' | head -1}","color" : "\#d5e0cc"},
