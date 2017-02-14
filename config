@@ -19,7 +19,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -105,18 +105,6 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
-# move focused container to workspace
-bindsym $mod+Ctrl+1 exec xbacklight -set 10
-bindsym $mod+Ctrl+2 exec xbacklight -set 20
-bindsym $mod+Ctrl+3 exec xbacklight -set 30
-bindsym $mod+Ctrl+4 exec xbacklight -set 40
-bindsym $mod+Ctrl+5 exec xbacklight -set 50
-bindsym $mod+Ctrl+6 exec xbacklight -set 60
-bindsym $mod+Ctrl+7 exec xbacklight -set 70
-bindsym $mod+Ctrl+8 exec xbacklight -set 80
-bindsym $mod+Ctrl+9 exec xbacklight -set 100
-bindsym $mod+Ctrl+0 exec xbacklight -set 0
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -157,39 +145,21 @@ new_window none
 hide_edge_borders none
 
 #my bindsym
-bindsym $mod+Ctrl+r exec evince
-bindsym $mod+Ctrl+s exec subl3
-bindsym $mod+t exec nautilus
+bindsym $mod+Ctrl+s exec subl
 bindsym $mod+b exec google-chrome-stable
-bindsym $mod+g exec pavucontrol
 bindsym $mod+Ctrl+l exec i3lock-fancy
 bindsym Caps_Lock exec switch-keys
 #options
 bindsym $mod+Shift+p exec shutdown now
 bindsym $mod+Shift+s exec scrot
 bindsym $mod+Shift+Ctrl+r exec reboot
-bindsym $mod+Shift+Ctrl+o exec curl 192.168.1.200/3214
-bindsym $mod+Shift+Ctrl+1 exec zbs
-bindsym $mod+Shift+Ctrl+2 exec zbs1
-bindsym $mod+Shift+Ctrl+3 exec zbs2
-bindsym $mod+Shift+Ctrl+9 exec pkill chrome
-bindsym $mod+Shift+Ctrl+0 exec feh --bg-scale "$(find ~/.w/|shuf -n1)"
 
-bindsym $mod+u exec amixer set Master 5%+
-bindsym $mod+i exec amixer set Master 5%-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
 exec auto-xflux
-exec feh --bg-scale "$(find ~/.w/|shuf -n1)"
-exec /usr/bin/nm-applet
-exec /usr/bin/volumeicon
 exec alarm-clock
-#exec qbittorrent
-exec xfce4-power-manager
-exec blueman-applet
-exec /usr/bin/workrave
 bar {
 	position bottom
 #  output LVDS1
@@ -214,3 +184,7 @@ colors{
         #urgent_workspace   #2f343a #fff #8cc7d1
 	}
 }
+
+bindsym Print exec scrot 'f%Y-%m-%d-%s_$wx$h.png' -e 'mv $f /
+bindsym $mod+KP_Add exec amixer sset Master 5%+
+bindsym $mod+KP_Subtract exec amixer sset Master 5%-
