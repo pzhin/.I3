@@ -158,7 +158,9 @@ bindsym $mod+Shift+Ctrl+r exec reboot
 # finds out, if available)
 
 exec setxkbmap "us,ru" ",winkeys" "grp:caps_toggle"
-exec alarm-clock
+exec xrandr --output DVI-I-1 --right-of VGA-1 --auto
+exec telegram &> /dev/null
+exec slack &> /dev/null
 bar {
 	position bottom
 #  output LVDS1
