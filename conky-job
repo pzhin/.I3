@@ -47,6 +47,7 @@ TEXT
 {"full_text" : "${totaldown eth0}", "color" : "\#ffffff"},
 {"full_text" : "${exec date '+ %d.%m' }" },
 {"full_text" : "${exec date '+ %H:%M:%S' }" , "color" : "\#27ae60"},
+{"full_text" : "${exec date -u '+ %H:%M:%S' }" , "color" : "\#AAAA00"},
 {"full_text" : "${font LCDMono:bold:size=12}"},
 {"full_text" : "${exec sh ~/.i3/sh/layouts}", "color" : "\#8e44ad"}
 ],
