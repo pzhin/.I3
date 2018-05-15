@@ -1,0 +1,20 @@
+#!/bin/sh
+i3lockpath= /usr/bin/i3lock -u -c000000 -t -d -I 86400
+
+$i3lockpath
+i3lockpid=$!
+sleep 0.5
+
+winid=`xwininfo -name "i3lock" | grep "Window id" | grep -oE "0x[0-9a-f]+"`
+if [ -z "$winid" ]
+then
+    echo "Could not find i3lock window"
+    exit 1
+fi
+
+echo $winid > ~/winid
+conky -w "$winid" -x 650 -c $HOME/.i3/DivergenceMeterClock/DivergenceMeterClock &
+conkypid=$!
+
+wait $i3lockpid
+kill $conkypid
